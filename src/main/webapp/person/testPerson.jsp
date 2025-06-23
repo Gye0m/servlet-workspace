@@ -9,7 +9,6 @@
 	String animal = request.getParameter("animal");
 	String foods [] = request.getParameterValues("food");
 	String recommend = (String) request.getAttribute("recommend");
-	
 %>
 <!DOCTYPE html>
 <html>
