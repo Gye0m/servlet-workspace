@@ -56,13 +56,16 @@ public class TestPersonServlet2 extends HttpServlet {
 		// JSP가 화면을 만들때 필요한 데이터들을 전달하기 위해
 		// 필요한 객체(attribute)
 		request.setAttribute("recommend", recommend);
-		
+
 		// dispatcher : 요청을 다른 이에게 위임하겠다~
-		
+
 		// html작성을 JSP에게 위임
 		// 매개변수로 요청을 위임할 JSP의 경로 추가.
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/person/testPerson.jsp"); 
-		dispatcher.forward(request, response); // 데이터 그대로 담아서 전송
+		// getRequestDispatcher("jsp의 주소 || 서블릿의 url패턴")
+		// 지정된 서블릿을 호출하여 요청처리를 위임하고, 
+		// "최초 client가 요청했던 url에는 변화가 없다."
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/person/testPerson.jsp");
+		dispatcher.forward(request, response); // 데이터를 소멸시키지 않고 그대로 담아서 전송 
 	}
 
 	/**
